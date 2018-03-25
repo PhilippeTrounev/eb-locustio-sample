@@ -19,7 +19,7 @@ from locust import HttpLocust, TaskSet, task
 
 
 
-headers = {'Authorization': "Bearer 5hyQAGOer3WPDRIRQswtkvQCbVwN7C"}
+headers = {'Authorization': "Bearer 2k913qHKQHVwBby24w784IOI0Gj4in"}
 
 class GetBook(TaskSet):
     @task(1000)
