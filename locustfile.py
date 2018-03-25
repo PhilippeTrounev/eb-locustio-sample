@@ -21,7 +21,7 @@ from locust import HttpLocust, TaskSet, task
 
 headers = {'Authorization': "Bearer 5hyQAGOer3WPDRIRQswtkvQCbVwN7C"}
 
-class GetBook(TaskSet):10
+class GetBook(TaskSet):
     @task(1000)
     def book(self):
         response = self.client.get("/api/boo_J1W9cp0AI2JYogcXp/", headers=headers)
