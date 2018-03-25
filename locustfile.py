@@ -15,13 +15,23 @@ import random
 from locust import HttpLocust, TaskSet, task
 
 
+#eb create -i c3.large --scale 1 --envvars TARGET_URL=https://docsie.io --instance_profile aws-elasticbeanstalk-ec2-role
 
-headers = {'Authorization': "Bearer QrA0KXNzk9n9N4GEebJc1dEa7jitJL"}
 
-class MyTaskSet(TaskSet):
+
+headers = {'Authorization': "Bearer hVgXpaH4qJXe1FUOc7L9V5sEiK96t2"}
+
+class GetBook(TaskSet):
     @task(1000)
-    def index(self):
+    def book(self):
         response = self.client.get("/api/boo_J1W9cp0AI2JYogcXp/", headers=headers)
+    @task(1001)
+    def version(self):
+        response = self.client.get("/api/boo_uIWlZGvMS12teyG03/ver_4T1eKj4sNHGfHmoWs/", headers=headers)
+    @task(1002)
+    def language(self):
+        response = self.client.get("/api/boo_z3orEG5snednBFvSa/ver_hU71B1gPB1tQVlAhE/lan_bLf30PxOhrbdTEyF4/", headers=headers)
+
 
     # This task will 15 times for every 1000 runs of the above task
     # @task(15)
@@ -36,6 +46,6 @@ class MyTaskSet(TaskSet):
 
 class MyLocust(HttpLocust):
     host = os.getenv('TARGET_URL', "http://localhost")
-    task_set = MyTaskSet
+    task_set = GetBook
     min_wait = 45
     max_wait = 50
