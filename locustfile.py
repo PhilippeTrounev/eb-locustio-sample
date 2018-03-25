@@ -14,10 +14,14 @@ import string
 import random
 from locust import HttpLocust, TaskSet, task
 
+
+
+headers = {'Authorization': "Bearer 5Riuo17528k9HZKUi7dAxuiOn0SYnc"}
+
 class MyTaskSet(TaskSet):
     @task(1000)
     def index(self):
-        response = self.client.get("/")
+        response = self.client.get("/api/boo_J1W9cp0AI2JYogcXp/", headers=headers)
 
     # This task will 15 times for every 1000 runs of the above task
     # @task(15)
