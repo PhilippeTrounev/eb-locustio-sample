@@ -16,7 +16,7 @@ from locust import HttpLocust, TaskSet, task
 
 
 
-headers = {'Authorization': "Bearer 5Riuo17528k9HZKUi7dAxuiOn0SYnc"}
+headers = {'Authorization': "Bearer QrA0KXNzk9n9N4GEebJc1dEa7jitJL"}
 
 class MyTaskSet(TaskSet):
     @task(1000)
